@@ -1,6 +1,6 @@
 {
-  "name": "node-starter",
-  "description": "Ronald's node-starter package",
+  "name": "chat",
+  "description": "Microsoft Hackathon Project",
   "main": "server.js",
   "authors": [
     "Ronald Ding <ronding@live.unc.edu>"

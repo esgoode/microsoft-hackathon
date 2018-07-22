@@ -1,7 +1,7 @@
 (function () {
 
   'use strict';
-  var app = angular.module('starter', ['ui.router', 'ui.bootstrap', 'ui.bootstrap.modal', 'ngCookies']);
+  var app = angular.module('chat', ['ui.router', 'ui.bootstrap', 'ui.bootstrap.modal', 'ngCookies']);
 
   app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', configRoutes]);
 
@@ -11,6 +11,11 @@
         url: '/home',
         templateUrl: 'app/home/home.html',
         controller: 'homeCtrl'
+      })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'app/admin/admin.html',
+        controller: 'adminCtrl'
       })
 
     $urlRouterProvider.otherwise('/home');

@@ -4,7 +4,7 @@
   var app;
   app = angular.module('chat');
 
-  app.factory('homeSvc', ['$http', '$log', function homeSvc($http, $log) {
+  app.factory('adminSvc', ['$http', '$log', function adminSvc($http, $log) {
 
   	var test = function () {
   		var params = {

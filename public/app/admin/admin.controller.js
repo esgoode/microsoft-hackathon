@@ -4,10 +4,10 @@
 	var app;
 
 	app = angular.module('chat');
-	app.controller('homeCtrl', ['$scope', '$state', 'homeSvc', function homeCtrl($scope, $state, homeSvc){
+	app.controller('adminCtrl', ['$scope', '$state', 'adminSvc', function adminCtrl($scope, $state, adminSvc){
 
 		// $scope.test = function () {
-		// 	homeSvc.test().then(function (data) {
+		// 	adminSvc.test().then(function (data) {
 		// 		$scope.result = data;
 		// 	});
 		// }

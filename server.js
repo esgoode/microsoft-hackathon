@@ -6,7 +6,6 @@ var _ = require('lodash');
 var schedule = require('node-schedule');
 var fs = require('fs');
 var crypto = require('crypto');
-var mysql = require('mysql');
 //var mysqlConfig = JSON.parse(fs.readFileSync('./config/mysqlConfig.json', 'utf8'));
 //var sql = mysql.createConnection(mysqlConfig);
 

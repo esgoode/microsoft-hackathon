@@ -6,17 +6,14 @@
 
   app.factory('adminSvc', ['$http', '$log', function adminSvc($http, $log) {
 
-  	var test = function () {
-  		var params = {
-        test: ""
-      }
-  		return $http.post("/test", params).then(function (response) {
+  	var getActiveSessions = function () {
+  		return $http.get("/getActiveSessions").then(function (response) {
   			return response.data;
   		});
   	}
 
     return {
-    	test: test
+    	getActiveSessions: getActiveSessions
     };
   }]);
 

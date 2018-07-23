@@ -12,5 +12,17 @@
 		// 	});
 		// }
 
+		$scope.activeSession;
+
+		adminSvc.getActiveSessions().then(function (data) {
+			$scope.sessions = data;
+		});
+
+		$scope.makeActive = function (session) {
+			console.log("makeActive called");
+			$scope.activeSession = session;
+		}
+
+
 	}]);
 }());

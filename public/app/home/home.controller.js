@@ -20,6 +20,7 @@
 			console.log(data);
 		    $scope.chatLog.push(data);
 		    $scope.$apply();
+		    $scope.scrollToBottom();
 		});
 
 		var defaultMessage = {

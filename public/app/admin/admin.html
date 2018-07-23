@@ -1,1 +1,30 @@
-<div class="home-title">Admin</div>
+<nav class="navbar fixed-top navbar-light bg-light">
+	<div class="container">
+		<a class="navbar-brand">
+			<img id="logo" ng-src="img/logo.png">
+		</a>
+	</div>
+</nav>
+<div id="chat-body">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-body">
+						<div ng-repeat="session in sessions" ng-click="makeActive(session)" class="card">
+							<div class="card-body">
+								Unique Chat Id: {{session.sessionToken}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				{{activeSession}}
+			</div>
+		</div>
+	</div>
+</div>
+<nav id="input-bar" class="navbar fixed-bottom navbar-light bg-light">
+	Footer
+</nav>

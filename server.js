@@ -11,6 +11,7 @@ var crypto = require('crypto');
 //var sql = mysql.createConnection(mysqlConfig);
 
 var tools = require('./repository/tools.js');
+var handlers = require('./repository/handlers.js');
 
 // sql.connect(function (err) {
 // 	console.log("Database connection established.");
@@ -34,14 +35,8 @@ chat.on('connection', function (client) {
 		content: 'How may I help you today?'
 	};
 	client.emit('chat', newMessage);
-	client.on('chat', function (content) {
-		console.log(content);
-		var newMessage = {
-			type: 0,
-			who: 'Bot',
-			time: new Date(),
-			content: 'Your message: <' + content + '> was received by the server. This is the server responsing.'
-		};
+	client.on('chat', function (data) {
+		var newMessage = handlers.chat(data);
 		client.emit('chat', newMessage);
 	});
 });

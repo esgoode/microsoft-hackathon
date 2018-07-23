@@ -16,6 +16,7 @@
 		$scope.userInput = '';
 
 		var chat = io.connect('/chat');
+		var sessionToken = homeSvc.generateToken();
 		chat.on('chat', function (data) {
 			console.log(data);
 		    $scope.chatLog.push(data);
@@ -27,6 +28,7 @@
 			type: 0,
 			who: 'Me',
 			content: '',
+			sessionToken: sessionToken
 		}
 
 		$scope.scrollToBottom = function () {
@@ -39,7 +41,7 @@
 			newMessage.content = $scope.userInput;
 			newMessage.time = new Date();
 			$scope.chatLog.push(newMessage);
-			chat.emit('chat', $scope.userInput);
+			chat.emit('chat', newMessage);
 			$scope.scrollToBottom();
 			$scope.userInput = "";
 		}

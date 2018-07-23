@@ -1,4 +1,5 @@
 var express = require('express');
+var io = require('socket.io');
 var bodyParser = require('body-parser');
 var path = require('path');
 var http = require('http');
@@ -19,7 +20,36 @@ var tools = require('./repository/tools.js');
 // });
 
 var app = express();
+var server = http.Server(app);
+var io = io(server);
+io.set('origins', '*:*');
 var port = 8080;
+
+var chat = io.of('/chat');
+chat.on('connection', function (client) {
+	var newMessage = {
+		type: 0,
+		who: 'Bot',
+		time: new Date(),
+		content: 'How may I help you today?'
+	};
+	client.emit('chat', newMessage);
+	client.on('chat', function (content) {
+		console.log(content);
+		var newMessage = {
+			type: 0,
+			who: 'Bot',
+			time: new Date(),
+			content: 'Your message: <' + content + '> was received by the server. This is the server responsing.'
+		};
+		client.emit('chat', newMessage);
+	});
+});
+
+var admin = io.of('/admin');
+// admin.on('connection', function (socket) {
+// 	socket.emit('admin', 'This worked');
+// });
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({'extended': 'true'}));
@@ -35,6 +65,7 @@ app.get('*', function(req, res) {
 	res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.listen(port, function () {
+server.listen(port, function () {
 	console.log("Server running on port " + port + ".");
 });
+

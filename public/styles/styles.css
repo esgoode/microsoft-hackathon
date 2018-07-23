@@ -1,9 +1,54 @@
 body {
-	background-color: #2b3e50;
+	background-color: #fff;
 }
 
-.home-title {
-	color: white;
-    font-size: 100px;
-    font-family: georgia;
+#logo {
+	height: 2rem;
+}
+
+#chat-body {
+	position: fixed;
+	right: 0;
+	left: 0;
+	top: 4rem;
+	/* Firefox */
+	height: -moz-calc(100% - 9rem);
+	/* WebKit */
+	height: -webkit-calc(100% - 9rem);
+	/* Opera */
+	height: -o-calc(100% - 9rem);
+	/* Standard */
+	height: calc(100% - 9em);
+	overflow-y: scroll;
+}
+
+#input-bar {
+	height: 5rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #c2c2c2; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999999; 
+    border-radius: 10px;
+}
+
+.card-title {
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+.message-card {
+	margin: 1rem;
+}
+
+.float-right {
+	float: right;
 }

@@ -1,1 +1,46 @@
-<div class="home-title">Home</div>
+<nav class="navbar fixed-top navbar-light bg-light">
+	<div class="container">
+		<a class="navbar-brand">
+			<img id="logo" ng-src="img/logo.png">
+		</a>
+	</div>
+</nav>
+
+<div id="chat-body">
+	<div class="container">
+		<div ng-repeat="chat in chatLog" class="row message-card">
+			<div class="col-md-1"></div>
+			<div ng-if="chat.type == 0" class="col-md-10">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div ng-class="{'float-right': chat.who == 'Me'}">
+									<span class="card-title">{{chat.who}}</span> at {{chat.time | date:'hh:mm a'}}
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div>{{chat.content}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+</div>
+<nav id="input-bar" class="navbar fixed-bottom navbar-light bg-light">
+	<div class="container">
+			<div class="col-md-11">
+				<form ng-submit="send()">
+					<input placeholder="Type a message here..." type="text" class="form-control" ng-model="userInput" autofocus>
+				</form>
+			</div>
+			<div class="col-md-1">
+				<button class="btn btn-default" ng-click="send()">Send</button>
+			</div>
+	</div>
+</nav>

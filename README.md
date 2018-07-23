@@ -10,3 +10,5 @@ To run this locally:
 6. run bower install
 7. Run npm start
 8. Go to localhost:8080 on a browser
+
+test vc
